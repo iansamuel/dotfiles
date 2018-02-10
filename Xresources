@@ -1,0 +1,4 @@
+! URxvt configuration options
+
+URxvt.font: xft:monospace:size=10
+URxvt.scrollBar: false
