@@ -1,0 +1,23 @@
+set imap_user=isamuel@law.harvard.edu
+set folder=imaps://outlook.office365.com
+set imap_pass=`pass harvard.edu`
+
+set spoolfile=+INBOX
+set imap_check_subscribed
+
+set editor=emacsclient
+
+set smtp_url=smtp://$imap_user@smtp.office365.com:587
+set smtp_pass=`pass harvard.edu`
+set realname = 'Ian Samuel'
+set from = isamuel@law.harvard.edu
+set use_from = yes
+set ssl_force_tls = yes
+unset ssl_starttls
+
+set sendmail="/usr/bin/msmtp"
+
+set trash="+Archive1"
+
+set ts_enabled = yes
+set ts_status_format = "%f (%m messages)"
