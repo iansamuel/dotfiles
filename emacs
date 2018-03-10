@@ -1,18 +1,14 @@
-; Ian Samuel's .emacs config file
-; Started 6 April 2013
-
-
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
-(package-initialize)
+; Birthday: 6-IV-2013
 
 (server-start)
 
-(menu-bar-mode -1)          ; Turns off that idiotic menu bar that I don't like
-(global-visual-line-mode)   ; Visual word wrap on by default so I don't see those slashes
-(tool-bar-mode -1)
+(menu-bar-mode -1)               ; No menu bar
+(global-visual-line-mode)        ; Visual word wrap on by default
+(tool-bar-mode -1)               ; No toolbar
+(setq inhibit-startup-screen t)	 ; No startup screen
+
+(setq coding-system-for-read 'utf-8 )	; use utf-8 by default
+(setq coding-system-for-write 'utf-8 )
 
 (setq
    backup-by-copying t      ; don't clobber symlinks
@@ -23,16 +19,42 @@
    kept-old-versions 2
    version-control t)       ; use versioned backups
 
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "https://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")))
+
+; PACKAGE MANAGEMENT SHIT
+
+(require 'package)
+
+(setq package-enable-at-startup nil) ; do not load any packages before startup
+
+;; the following lines tell emacs where on the internet to look up
+;; for new packages.
+(setq package-archives '(("org"       . "http://orgmode.org/elpa/")
+                         ("gnu"       . "http://elpa.gnu.org/packages/")
+                         ("melpa"     . "https://melpa.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")))
+(package-initialize) ; guess what this one does ?
+
+;; Bootstrap `use-package'
+(unless (package-installed-p 'use-package) ; unless it is already installed
+  (package-refresh-contents) ; updage packages archive
+  (package-install 'use-package)) ; and install the most recent version of use-package
+
+(use-package general :ensure t
+	     :config
+	     (general-define-key "C-'" 'avy-goto-word-1)
+	     )
+
+(use-package avy :ensure t
+	     :commands (avy-goto-word-1))
+
+(require 'use-package) ; guess what this one does too ?
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(markdown-footnote-location (quote header))
- '(package-selected-packages (quote (## markdown-mode))))
+ '(package-selected-packages (quote (avy general use-package markdown-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
