@@ -39,6 +39,8 @@
   (package-refresh-contents) ; updage packages archive
   (package-install 'use-package)) ; and install the most recent version of use-package
 
+(require 'use-package) ; guess what this one does too ?
+
 (use-package general :ensure t
 	     :config
 	     (general-define-key "C-'" 'avy-goto-word-1)
@@ -50,8 +52,6 @@
 (use-package spaceline-config
   :config
   (spaceline-emacs-theme))
-
-(require 'use-package) ; guess what this one does too ?
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
