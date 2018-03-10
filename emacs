@@ -47,6 +47,10 @@
 (use-package avy :ensure t
 	     :commands (avy-goto-word-1))
 
+(use-package spaceline-config
+  :config
+  (spaceline-emacs-theme))
+
 (require 'use-package) ; guess what this one does too ?
 
 (custom-set-variables
@@ -54,7 +58,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (avy general use-package markdown-mode))))
+ '(custom-enabled-themes (quote (spacemacs-light)))
+ '(custom-safe-themes
+   (quote
+    ("fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" default)))
+ '(package-selected-packages
+   (quote
+    (spaceline-config spaceline spacemacs-theme avy general use-package markdown-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
