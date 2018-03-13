@@ -4,3 +4,5 @@ export VISUAL="emacsclient -c -a emacs"
 
 alias ec="emacsclient -c -n"
 
+GPG_TTY=$(tty)
+export GPG_TTY
