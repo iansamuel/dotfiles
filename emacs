@@ -1,5 +1,7 @@
 ; Birthday: 6-IV-2013
 
+(server-start)
+
 (setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
 (setq exec-path (append '("/usr/local/bin") exec-path))
 
