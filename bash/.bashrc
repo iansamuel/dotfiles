@@ -8,3 +8,4 @@ GPG_TTY=$(tty)
 export GPG_TTY
 
 source /usr/local/etc/bash_completion.d/pass
+export PATH="/usr/local/bin:$PATH"
