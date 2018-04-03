@@ -52,7 +52,7 @@
 (use-package avy :ensure t
 	     :commands (avy-goto-word-1))
 
-(use-package spaceline-config
+(use-package spaceline-config :ensure t
   :config
   (spaceline-emacs-theme))
 
