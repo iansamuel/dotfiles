@@ -22,4 +22,4 @@ set trash="+Archive1"
 set ts_enabled = yes
 set ts_status_format = "%f (%m messages)"
 
-source mutt-colors-solarized-dark-16.muttrc
+source ~/dotfiles/mutt/mutt-colors-solarized-dark-16.muttrc
